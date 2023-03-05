@@ -1,0 +1,273 @@
+SQL> select first_name as worker_name from worker;
+
+WORKER_NAME
+--------------------
+Monika
+Niharika
+Vishal
+Amitabh
+Vivek
+Vipul
+Satish
+Geetika
+
+SQL> select instr(first_name,'A') from worker where first_name='Amitabh';
+
+INSTR(FIRST_NAME,'A')
+---------------------
+                    1
+SQL> select replace(first_name,'a','A')from worker;
+
+REPLACE(FIRST_NAME,'
+--------------------
+MonikA
+NihArikA
+VishAl
+AmitAbh
+Vivek
+Vipul
+SAtish
+GeetikA
+
+SQL> select * from worker order by first_name asc;
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         4 Amitabh              Singh                    500000 14-FEB-20
+Admin
+
+         8 Geetika              Chauhan                   90000 14-APR-11
+Admin
+
+         1 Monika               Arora                    100000 14-FEB-20
+HR
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         2 Niharika             Verma                     80000 14-JUN-11
+Admin
+
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+         6 Vipul                Diwan                    200000 14-JUN-11
+Account
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         3 Vishal               Singhal                  300000 14-FEB-20
+HR
+
+         5 Vivek                Bhati                    500000 14-JUN-11
+Admin
+
+
+8 rows selected.
+
+SQL> select * from worker order by first_name asc,department desc;
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         4 Amitabh              Singh                    500000 14-FEB-20
+Admin
+
+         8 Geetika              Chauhan                   90000 14-APR-11
+Admin
+
+         1 Monika               Arora                    100000 14-FEB-20
+HR
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         2 Niharika             Verma                     80000 14-JUN-11
+Admin
+
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+         6 Vipul                Diwan                    200000 14-JUN-11
+Account
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         3 Vishal               Singhal                  300000 14-FEB-20
+HR
+
+         5 Vivek                Bhati                    500000 14-JUN-11
+Admin
+
+
+8 rows selected.
+SQL> select * from worker where first_name in('Vipul','Satish');
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         6 Vipul                Diwan                    200000 14-JUN-11
+Account
+
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+SQL> select department as admin from worker;
+
+ADMIN
+--------------------
+HR
+Admin
+HR
+Admin
+Admin
+Account
+Account
+Admin
+
+SQL> select * from worker where first_name like '%a%';
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         1 Monika               Arora                    100000 14-FEB-20
+HR
+
+         2 Niharika             Verma                     80000 14-JUN-11
+Admin
+
+         3 Vishal               Singhal                  300000 14-FEB-20
+HR
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         4 Amitabh              Singh                    500000 14-FEB-20
+Admin
+
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+         8 Geetika              Chauhan                   90000 14-APR-11
+Admin
+
+
+6 rows selected.
+
+SQL> select * from worker where salary between 100000 and 500000;
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         1 Monika               Arora                    100000 14-FEB-20
+HR
+
+         3 Vishal               Singhal                  300000 14-FEB-20
+HR
+
+         4 Amitabh              Singh                    500000 14-FEB-20
+Admin
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         5 Vivek                Bhati                    500000 14-JUN-11
+Admin
+
+         6 Vipul                Diwan                    200000 14-JUN-11
+Account
+
+SQL> select * from worker where first_name like '_____h';
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+SQL>SELECT * FROM worker WHERE year(joining_date) = 2014 AND month(joining_date) = 2;
+
+SQL> select * from worker where salary>=50000 and salary<=100000;
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         1 Monika               Arora                    100000 14-FEB-20
+HR
+
+         2 Niharika             Verma                     80000 14-JUN-11
+Admin
+
+         7 Satish               Kumar                     75000 14-JAN-20
+Account
+
+
+ WORKER_ID FIRST_NAME           LAST_NAME                SALARY JOINING_D
+---------- -------------------- -------------------- ---------- ---------
+DEPARTMENT
+--------------------
+         8 Geetika              Chauhan                   90000 14-APR-11
+Admin
+
+SQL> SELECT salesman.name AS "Salesman", customer.cust_name, customer.city FROM salesman,customer WHERE salesman.city=customer.city;
+
+Salesman             CUST_NAME            CITY
+-------------------- -------------------- --------------------
+james hoog           nick rimando         new york
+james hoog           brad davis           new york
+pit alex             julian green         london
+mc lyon              fabian johnson       paris
+nail knite           fabian johnson       paris
+pit alex             brad guzan           london
+
+6 rows selected.
+
+SQL> SELECT a.cust_name AS "Customer Name", a.city, b.name AS "Salesman", b.commission FROM customer a INNER JOIN salesman b ON a.salesman_id=b.salesman_id;
+
+Customer Name        CITY                 Salesman             COMMISSION
+-------------------- -------------------- -------------------- ----------
+nick rimando         new york             james hoog                  .15
+brad davis           new york             james hoog                  .15
+graham zusi          california           nail knite                  .13
+julian green         london               nail knite                  .13
+fabian johnson       paris                mc lyon                     .14
+geoff cameron        berlin               lauson hen                  .12
+jozy altidor         moscow               paul adam                   .13
+brad guzan           london               pit alex                    .11
+
+8 rows selected.
+SQL> SELECT a.cust_name AS "Customer Name", a.city, b.name AS "Salesman", b.commission FROM customer a INNER JOIN salesman b ON a.salesman_id=b.salesman_id WHERE b.commission>.12;
+
+Customer Name        CITY                 Salesman             COMMISSION
+-------------------- -------------------- -------------------- ----------
+nick rimando         new york             james hoog                  .15
+brad davis           new york             james hoog                  .15
+graham zusi          california           nail knite                  .13
+julian green         london               nail knite                  .13
+fabian johnson       paris                mc lyon                     .14
+jozy altidor         moscow               paul adam                   .13
+
+6 rows selected.
+
